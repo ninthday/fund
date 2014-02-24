@@ -1,0 +1,23 @@
+<form id="frmx" action="index.php" method="GET">	
+	<input type="hidden" name="p" value="fund_dist">
+	<span>金額</span>
+	<input type="text" name="amount"><br>
+	<span>母計劃</span>
+	<select name="project" id="project">
+	<option value="">所有計畫</option>
+	</select><br>
+	<span>欲分配數量</span>
+	<select name="num">
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select><br>
+	<span>分配方式</span>
+	<select name="dist">
+		<option value="hare">第一計畫50%，餘款平分</option>
+		<option value="even">平均分攤</option>
+	</select><br>
+	<span></span>
+	<input type="submit" value="下一步">
+</form>

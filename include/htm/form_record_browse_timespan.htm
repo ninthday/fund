@@ -1,0 +1,34 @@
+<h4>依時間瀏覽</h4>
+<form id="frm" action="handler.php" method="POST">	
+	<input type="hidden" name="q" value="record_view_timespan">
+	<span>開始時間</span>
+	<select id="yy" onchange="makedate();"></select>
+	<select id="mm" onchange="makedate();"></select>
+	<select id="dd" onchange="makedate();"></select>
+	<input type="hidden" name="record_time_start" id="record_time_start" value=""><br>
+	<span>結束時間</span>
+	<select id="yy2" onchange="makedate();"></select>
+	<select id="mm2" onchange="makedate();"></select>
+	<select id="dd2" onchange="makedate();"></select>
+	<input type="hidden" name="record_time_end" id="record_time_end" value=""><br>
+	<span></span>
+	<input type="submit" onclick="makedate()" value="查詢">
+</form>
+<script type="text/javascript">
+	function makedate()
+	{
+		var yy=document.getElementById('yy').value;
+		var mm=document.getElementById('mm').value-1;
+		var dd=document.getElementById('dd').value;
+		var yy2=document.getElementById('yy2').value;
+		var mm2=document.getElementById('mm2').value-1;
+		var dd2=document.getElementById('dd2').value;
+		var ts=new Date(yy, mm, dd, 12);
+		var ts2=new Date(yy2, mm2, dd2, 12);
+		document.getElementById('record_time_start').value=ts.getTime()/1000;
+		document.getElementById('record_time_end').value=ts2.getTime()/1000;
+	}
+</script>
+
+<table id="tbl">
+</table>

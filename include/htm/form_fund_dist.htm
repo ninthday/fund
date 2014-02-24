@@ -1,0 +1,44 @@
+<form id="frm" action="handler.php" method="POST">	
+	<input type="hidden" name="q" value="record_add_dist">
+	<span id="project_info"></span><br>
+	<span>摘要</span>
+	<input type="text" name="desc" id="desc" value=""><br>
+	<span>總金額</span>
+	<input type="text" name="amount" id="amount" value="" readonly><br>
+	<span>分配於以下計畫 (除不盡餘數分配於第一計畫)</span><br>
+	<span>&nbsp;</span>
+	<span id="project"></span>
+	<br>
+	<span>收支</span>
+	<select name="inc_exp" id="inc_exp">
+		<option value="2">收入</option>
+		<option value="1">支出</option>
+	</select><br>
+	<span>帳目分類</span>
+	<select name="type" id="type">
+	</select><br>
+	<span>會計科目</span>
+	<select name="acct_type" id="acct_type">
+	</select><br>
+	<span>入帳時間</span>
+	<select id="yy" onchange="makedate();"></select>
+	<select id="mm" onchange="makedate();"></select>
+	<select id="dd" onchange="makedate();"></select>
+	<input type="hidden" name="record_time" id="record_time" value=""><br>
+	<span>請購單號</span>
+	<input type="text" name="desc_ticket" id="desc_ticket" value=""><br>
+	<span>公文掛號</span>
+	<input type="text" name="desc_register" id="desc_register" value=""><br>
+	<span>&nbsp;</span>
+	<input type="submit" name="b_submit" onclick="makedate();" value="新增">
+</form>
+<script type="text/javascript">
+	function makedate()
+	{
+		var yy=document.getElementById('yy').value;
+		var mm=document.getElementById('mm').value-1;
+		var dd=document.getElementById('dd').value;
+		var ts=new Date(yy, mm, dd, 12);
+		document.getElementById('record_time').value=ts.getTime()/1000;
+	}
+</script>

@@ -1,0 +1,28 @@
+<h4>條件搜尋</h4>
+<form id="frm" action="handler.php" method="POST">
+	<input type="hidden" name="q" value="record_view_search">
+
+	<span>計畫名稱</span>
+	<select name="project" id="project">
+	<option value="">所有計畫</option>
+	</select><br>
+	<span>分類</span>
+	<select name="type" id="type">
+	<option value="">全部</option>
+	</select><br>
+	<span>會計科目</span>
+	<select name="acct_type" id="acct_type">
+	<option value="">全部</option>
+	</select><br>
+	<span>&nbsp;</span><span>下列欄位可輸入部分關鍵字或留空白</span><br>
+	<span>帳目敘述</span>
+	<input type="text" name="desc">
+	<br>
+	<span>請購單號</span>
+	<input type="text" name="desc_ticket">
+	<br>
+	<span>&nbsp;</span>
+	<input type="submit" name="b_submit" value="確定">
+</form>
+<br>
+<table id="tbl"></table>

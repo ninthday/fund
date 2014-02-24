@@ -1,0 +1,31 @@
+<h4>依計畫瀏覽</h4>
+<form id="frm" action="handler.php" method="POST">
+	<input type="hidden" name="q" value="record_view_project">
+	<span>計畫名稱</span>
+	<select name="project" id="project">
+	<option value="">所有計畫</option>
+	</select><br>
+	<span>報表類型</span>
+	<select name="format" id="format">
+		<option value="detail">明細</option>
+		<option value="sum">摘要</option>
+	</select><br>
+	<span>時間區間</span>
+	<select name="timespan" id="timespan">
+		<option value="default">依報表設定</option>
+		<option value="seme">學年週期</option>
+		<option value="annu">年度週期</option>
+		<option value="custom">自訂</option>
+		<option value="all">所有時間</option>
+	</select>
+	&nbsp;*若該計畫無設定時間區間，則為所有時間
+	<br>
+	<span>輸出格式</span>
+	<select name="dl" id="dl">
+		<option value="html">線上瀏覽</option>
+		<option value="xls">Excel</option>
+	</select><br>
+	<span>&nbsp;</span>
+	<input type="submit" name="b_submit" value="確定">
+</form>
+<br>

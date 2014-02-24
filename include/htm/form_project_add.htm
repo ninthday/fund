@@ -1,0 +1,59 @@
+<form id="frm" action="handler.php" method="POST">	
+	<input type="hidden" name="q" value="project_add">
+	<input type="hidden" name="parent" id="parent" value="">
+	<span>計畫名稱</span>
+	<input type="text" name="name" value=""><br>
+	<span>預算金額</span>
+	<input type="text" name="budget" value=""><br>
+	<span>預算使用人 (系所計畫帳目或分支帳目) / 計畫主持人 (國科會計畫)</span>
+	<span class="wrapbox" id="user" name="user"></span>
+	<span>計畫開始時間</span>
+	<select id="yy" onchange="makedate();"></select>
+	<select id="mm" onchange="makedate();"></select>
+	<select id="dd" onchange="makedate();"></select>
+	<input type="hidden" name="start_time" id="start_time" value=""><br>
+	<span id="end_text">計畫結束時間</span>
+	<select id="yy2" onchange="makedate();"></select>
+	<select id="mm2" onchange="makedate();"></select>
+	<select id="dd2" onchange="makedate();"></select>
+	<input type="hidden" name="stop_time" id="stop_time" value=""><br>
+	<span>週期</span>
+	<select id="period" name="period" onchange="makedate();">
+	</select><br>
+	<span>備註</span>
+	<input type="text" name="desc" value=""><br>
+	<span>&nbsp;</span>
+	<input type="submit" name="b_submit" onclick="makedate();" value="新增計畫">
+</form>
+<script type="text/javascript">	
+
+function makedate()
+{
+	var period=document.getElementById('period').value;
+	var yy=document.getElementById('yy').value;
+	var mm=document.getElementById('mm').value-1;
+	var dd=document.getElementById('dd').value;
+	var yy2=document.getElementById('yy2').value;
+	var mm2=document.getElementById('mm2').value-1;
+	var dd2=document.getElementById('dd2').value;
+	var ts=new Date(yy, mm, dd, 12);
+	var ts2=new Date(yy2, mm2, dd2, 12);
+	document.getElementById('start_time').value=ts.getTime()/1000;
+	if (period == "3")
+	{
+		document.getElementById('yy2').style.visibility='visible';
+		document.getElementById('mm2').style.visibility='visible';
+		document.getElementById('dd2').style.visibility='visible';
+		document.getElementById('end_text').style.visibility='visible';
+		document.getElementById('stop_time').value=ts2.getTime()/1000;
+	}
+	else
+	{
+		document.getElementById('yy2').style.visibility='hidden';
+		document.getElementById('mm2').style.visibility='hidden';
+		document.getElementById('dd2').style.visibility='hidden';
+		document.getElementById('end_text').style.visibility='hidden';
+		document.getElementById('stop_time').value='';
+	}
+}
+</script>
